@@ -1,7 +1,18 @@
 defmodule GenReport do
   alias GenReport.Parser
 
-  @persons ["daniele", "mayk", "giuliano", "cleiton", "jakeliny", "joseph" , "diego", "rafael", "vinicius", "danilo"]
+  @persons [
+    "daniele",
+    "mayk",
+    "giuliano",
+    "cleiton",
+    "jakeliny",
+    "joseph",
+    "diego",
+    "rafael",
+    "vinicius",
+    "danilo"
+  ]
 
   def build(filename) do
     filename
@@ -10,13 +21,10 @@ defmodule GenReport do
   end
 
   defp handle_report([name, hours, _day, _month, _year], %{all_hours: all_hours}) do
-    IO.inspect(name)
-    all_hours =
-      Map.put(all_hours, name, all_hours[name] + hours)
+    all_hours = Map.put(all_hours, name, all_hours[name] + hours)
 
     %{all_hours: all_hours}
   end
-
 
   def report_acc() do
     all_hours = Enum.into(@persons, %{}, &{&1, 0})
