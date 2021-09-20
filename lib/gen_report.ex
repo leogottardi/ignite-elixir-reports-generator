@@ -43,7 +43,6 @@ defmodule GenReport do
 
     hours_per_month = handle_hours_per_month(persons, name, month, hours)
 
-
     %{all_hours: all_hours, hours_per_month: hours_per_month}
   end
 
@@ -60,7 +59,5 @@ defmodule GenReport do
     %{all_hours: all_hours, hours_per_month: hours_per_month}
   end
 
-  defp months_per_person() do
-    Enum.into(@months, %{}, &{&1, 0})
-  end
+  defp months_per_person(), do: Enum.into(@months, %{}, &{&1, 0})
 end
