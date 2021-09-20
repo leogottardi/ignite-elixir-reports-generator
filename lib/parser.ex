@@ -1,5 +1,4 @@
 defmodule GenReport.Parser do
-
   @months %{
     1 => "janeiro",
     2 => "fevereiro",
@@ -18,7 +17,7 @@ defmodule GenReport.Parser do
   def parse_file(filename) do
     filename
     |> File.stream!()
-    |> Enum.map(&parse_line/1)
+    |> Stream.map(&parse_line/1)
   end
 
   defp parse_line(line) do
