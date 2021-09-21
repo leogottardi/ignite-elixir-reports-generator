@@ -32,8 +32,8 @@ defmodule GenReport do
     build_report(all_hours, hours_per_month, hours_per_year)
   end
 
-  defp sum_hours(persons, name, month, hours) do
-    person = %{name => Map.put(persons[name], month, persons[name][month] + hours)}
+  defp sum_hours(persons, name, time, hours) do
+    person = %{name => Map.put(persons[name], time, persons[name][time] + hours)}
 
     Map.merge(persons, person)
   end
