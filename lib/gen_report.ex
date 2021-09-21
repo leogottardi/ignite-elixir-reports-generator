@@ -23,7 +23,11 @@ defmodule GenReport do
     hours_per_month = handle_sum_hours(persons_month, name, month, hours)
     hours_per_year = handle_sum_hours(persons_year, name, year, hours)
 
-    %{"all_hours" => all_hours, "hours_per_month" => hours_per_month, "hours_per_year" => hours_per_year}
+    %{
+      "all_hours" => all_hours,
+      "hours_per_month" => hours_per_month,
+      "hours_per_year" => hours_per_year
+    }
   end
 
   defp handle_sum_hours(persons, name, month, hours) do
@@ -37,7 +41,11 @@ defmodule GenReport do
     hours_per_month = build_hours_per_data(@months)
     hours_per_year = build_hours_per_data(@years)
 
-    %{"all_hours"  => all_hours, "hours_per_month"  => hours_per_month, "hours_per_year"  => hours_per_year}
+    %{
+      "all_hours" => all_hours,
+      "hours_per_month" => hours_per_month,
+      "hours_per_year" => hours_per_year
+    }
   end
 
   defp build_hours_per_data(data), do: Enum.into(@persons, %{}, &{&1, build_per_data(data)})
